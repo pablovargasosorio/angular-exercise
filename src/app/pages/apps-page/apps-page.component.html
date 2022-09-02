@@ -1,1 +1,4 @@
-<p>apps-page works!</p>
+<h1>Apps</h1>
+<div *ngIf="apps$ | async as apps">
+  <app-grid [data]="apps"></app-grid>
+</div>

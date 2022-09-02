@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IApp } from '../../model/apps.model';
+import { Observable } from 'rxjs';
+import { AppsService } from '../../services/apps.service';
 
 @Component({
   selector: 'app-apps-page',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppsPageComponent implements OnInit {
 
-  constructor() { }
+  // TODO List should be provided by NgRx selector
+  apps$!: Observable<IApp[]>;
+
+  constructor(private appsService: AppsService) { }
 
   ngOnInit(): void {
+    this.apps$ = this.appsService.getList();
   }
 
 }

@@ -1,1 +1,4 @@
-<p>accounts-page works!</p>
+<h1>Accounts</h1>
+<div *ngIf="accounts$ | async as accounts">
+  <app-grid [data]="accounts"></app-grid>
+</div>

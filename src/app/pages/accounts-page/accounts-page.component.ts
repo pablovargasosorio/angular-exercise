@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IAccount } from '../../model/accounts.model';
+import { AccountsService } from '../../services/accounts.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-accounts-page',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsPageComponent implements OnInit {
 
-  constructor() { }
+  // TODO List should be provided by NgRx selector
+  accounts$!: Observable<IAccount[]>;
+
+  constructor(private accountsService: AccountsService) { }
 
   ngOnInit(): void {
+    this.accounts$ = this.accountsService.getList();
   }
 
 }
