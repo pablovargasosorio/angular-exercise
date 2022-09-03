@@ -1,27 +1,14 @@
-# UiExercise
+# Angular/NgRx UI Exercise
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+This project is an incomplete UI. Based on a simple SaaS App manager.
+The data is mocked in three JSON constants, one for each collection (Apps, Accounts and Users) so we can respond that, instead of requesting a Rest API.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The project should be completed with the following requirements:
+- Grid component should be responsive. Show different columns depending on the screen width.
+- App card in the grid should show the name, the icon, the description and a counter of accounts for that App (app.id === account.app_id)
+- Account card should show the account name, the App icon and the User name for that Account.
+- User card should show the name and the icons of the apps which that user is using.
+- Each page should load 50 results, when scrolling down it should load the next 50 and so on.
+- Page components should not use services directly, use NgRx store selectors and actions instead.
+- The API service getList method should emulate a 3s timeout when getting the data. So the UI shows loading placeholders, like if we did real backend requests. You can use rxjs debounce for that. 
+- The collection items should be cached, so if we go back to a list which is already loaded, the store doesn't need to get the data again from the API (mock) source.
