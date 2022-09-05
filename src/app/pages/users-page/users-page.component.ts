@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../model/users.model';
 import { Observable } from 'rxjs';
-import { UsersService } from '../../services/users.service';
+import * as UsersSelector from '../../store/user/user.selectors';
+import * as UsersAction from '../../store/user/user.actions';
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-users-page',
@@ -10,13 +12,14 @@ import { UsersService } from '../../services/users.service';
 })
 export class UsersPageComponent implements OnInit {
 
-  // TODO List should be provided by NgRx selector
-  users$!: Observable<IUser[]>;
+  users$: Observable<IUser[]>;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private store: Store) {
+    this.users$ = this.store.select(UsersSelector.selectAllUsers);
+  }
 
   ngOnInit(): void {
-    this.users$ = this.usersService.getList();
+    this.store.dispatch(UsersAction.loadUserList());
   }
 
 }

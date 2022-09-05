@@ -1,7 +1,10 @@
 <div>
-  <input type="search" class="form-control" placeholder="Search"/>
+  <input type="search" class="form-control w-auto" placeholder="Search"/>
 </div>
-<div *ngFor="let item of data">
-  <img *ngIf="item['icon']" width="25" class="me-2" [src]="item['icon']"/>
-  {{item['id']}} - {{item['name']}}
+<div>
+  <!-- TODO Nice to have: Use content projection from the parent to inject app/account/user card -->
+  <div *ngFor="let item of data" class="d-inline fs-3">
+    <img *ngIf="item['icon']" width="25" class="me-2" [src]="item['icon']"/>
+    {{item['id']}} - {{item['name']}}
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { createFeatureSelector } from '@ngrx/store';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
 import * as AccountReducer from './account.reducer';
 
 /**
@@ -6,4 +6,12 @@ import * as AccountReducer from './account.reducer';
  */
 export const selectAccountsState = createFeatureSelector<AccountReducer.State>(
   AccountReducer.accountsFeatureKey
+);
+
+/**
+ * All adapter entities selector
+ */
+export const selectAllAccounts = createSelector(
+  selectAccountsState,
+  AccountReducer.selectAll
 );

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { IApp } from '../../model/apps.model';
 import { Observable } from 'rxjs';
-import { AppsService } from '../../services/apps.service';
+import * as AppsSelector from '../../store/app/app.selectors';
+import * as AppsAction from '../../store/app/app.actions';
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-apps-page',
@@ -10,13 +12,14 @@ import { AppsService } from '../../services/apps.service';
 })
 export class AppsPageComponent implements OnInit {
 
-  // TODO List should be provided by NgRx selector
-  apps$!: Observable<IApp[]>;
+  apps$: Observable<IApp[]>;
 
-  constructor(private appsService: AppsService) { }
+  constructor(private store: Store) {
+    this.apps$ = this.store.select(AppsSelector.selectAllApps);
+  }
 
   ngOnInit(): void {
-    this.apps$ = this.appsService.getList();
+    this.store.dispatch(AppsAction.loadAppList());
   }
 
 }
