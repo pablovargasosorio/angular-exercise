@@ -4,7 +4,11 @@ This project is an incomplete UI. Based on a simple SaaS App manager.
 We have 3 collections: Users, Apps and Accounts. An Account is a discovered usage of any App by any User.
 The data is mocked in three JSON constants, one for each collection (Apps, Accounts and Users) so we can respond that, instead of requesting a Rest API.
 
+# Base project:
 ![Alt text](./exercise_snapshot.png?raw=true "Angular Exercise")
+The project is already built, like you can see in the screenshot. So the main challenges to complete the exercise would be:
+- Figure out how to complete missing data in the cards (counters, etc.) which should be retrieved by a kind of joining logic.
+- Now showing the first 50. Implement scroll 'get more results' action and store cache.
 
 # Requirements:
 - The app/account/user data should be presented as a card grid.
