@@ -11,7 +11,8 @@ export class AccountEffects {
     return this.actions$.pipe(
       ofType('[Accounts Page] Load Account List'),
       mergeMap(() => {
-        return this.accountsService.getList().pipe(
+        // TODO Page block should be dynamic
+        return this.accountsService.getList(0, 50).pipe(
           map((response: any) => {
             return AccountActions.loadAccountListSuccess({ results: response });
           }),

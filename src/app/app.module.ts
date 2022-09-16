@@ -15,15 +15,23 @@ import * as fromUser from './store/user/user.reducer';
 import { AppEffects } from './store/app/app.effects';
 import { AccountEffects } from './store/account/account.effects';
 import { UserEffects } from './store/user/user.effects';
+import { AppCardComponent } from './components/cards/app-card/app-card.component';
+import { UserCardComponent } from './components/cards/user-card/user-card.component';
+import { AccountCardComponent } from './components/cards/account-card/account-card.component';
+import { TemplateDefDirective } from './directives/template-ref.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
+    TemplateDefDirective,
     GridComponent,
     AccountsPageComponent,
     AppsPageComponent,
     UsersPageComponent,
-    MenuComponent
+    MenuComponent,
+    AppCardComponent,
+    UserCardComponent,
+    AccountCardComponent
   ],
   imports: [
     BrowserModule,

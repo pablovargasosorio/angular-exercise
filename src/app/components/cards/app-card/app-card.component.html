@@ -1,0 +1,11 @@
+<div class="bg-light m-5">
+  <div>
+    <img *ngIf="app['icon']" width="25" class="me-2" [src]="app['icon']"/> {{app['name']}}
+  </div>
+  <div class="text-muted">
+    {{app['description']}}
+  </div>
+  <div>
+    Accounts: <b>{{app['accounts']}}</b>
+  </div>
+</div>

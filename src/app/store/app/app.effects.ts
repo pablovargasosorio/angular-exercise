@@ -12,7 +12,8 @@ export class AppEffects {
     return this.actions$.pipe(
       ofType('[Apps Page] Load App List'),
       mergeMap(() => {
-        return this.appsService.getList().pipe(
+        // TODO Page block should be dynamic
+        return this.appsService.getList(0, 50).pipe(
           map((response: any) => {
             return AppActions.loadAppListSuccess({ results: response });
           }),

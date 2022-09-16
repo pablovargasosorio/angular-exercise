@@ -1,4 +1,8 @@
 <h1>Users</h1>
 <div *ngIf="users$ | async as users">
-  <app-grid [data]="users"></app-grid>
+  <app-grid [data]="users">
+    <ng-template [tempDef]="'cardTpl'" let-data="data">
+      <app-user-card [user]="data"></app-user-card>
+    </ng-template>
+  </app-grid>
 </div>

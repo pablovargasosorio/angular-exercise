@@ -11,7 +11,8 @@ export class UserEffects {
     return this.actions$.pipe(
       ofType('[Users Page] Load User List'),
       mergeMap(() => {
-        return this.usersService.getList().pipe(
+        // TODO Page block should be dynamic
+        return this.usersService.getList(0, 50).pipe(
           map((response: any) => {
             return UserActions.loadUserListSuccess({ results: response });
           }),

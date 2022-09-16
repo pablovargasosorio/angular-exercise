@@ -1,0 +1,9 @@
+<div class="bg-light m-5">
+  <div>{{user['name']}}</div>
+  <div>
+    <h4>Apps using</h4>
+    <span *ngFor="let app of user['apps']">
+      <img *ngIf="app['icon']" width="25" class="me-2" [src]="app['icon']"/>
+    </span>
+  </div>
+</div>
