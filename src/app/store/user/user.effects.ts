@@ -13,6 +13,7 @@ export class UserEffects {
       mergeMap(() => {
         // TODO Page block should be dynamic
         return this.usersService.getList(0, 50).pipe(
+          // TODO Join some data from other collections (each user apps)
           map((response: any) => {
             return UserActions.loadUserListSuccess({ results: response });
           }),

@@ -14,6 +14,7 @@ export class AppEffects {
       mergeMap(() => {
         // TODO Page block should be dynamic
         return this.appsService.getList(0, 50).pipe(
+          // TODO Join some data from other collections (app account counter)
           map((response: any) => {
             return AppActions.loadAppListSuccess({ results: response });
           }),

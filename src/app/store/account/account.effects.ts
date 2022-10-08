@@ -13,6 +13,7 @@ export class AccountEffects {
       mergeMap(() => {
         // TODO Page block should be dynamic
         return this.accountsService.getList(0, 50).pipe(
+          // TODO Join some data from other collections (parent app icon, user name resolve)
           map((response: any) => {
             return AccountActions.loadAccountListSuccess({ results: response });
           }),
